@@ -49,7 +49,7 @@ var device = null;
         const intf = device.settings["interface"].interfaceNumber;
         const alt = device.settings.alternate.alternateSetting;
         const serial = device.device_.serialNumber;
-        let info = `${mode}: [${vid}:${pid}] cfg=${cfg}, intf=${intf}, alt=${alt}, name="${name}" serial="${serial}"`;
+        let info = `${mode}: [${vid}:${pid}] cfg=${cfg}, intf=${intf}, alt=${alt}\nName="${name}"\nSerial="${serial}"`;
         return info;
     }
 
@@ -313,7 +313,9 @@ var device = null;
             if (reason) {
                 statusDisplay.textContent = reason;
             }
-
+			else {
+				statusDisplay.textContent = "Device disconnected";
+			}
             connectButton.textContent = "Connect";
             infoDisplay.textContent = "";
             dfuDisplay.textContent = "";
@@ -335,7 +337,7 @@ var device = null;
 
         async function connect(device) {
             try {
-                await device.open();
+                await device.open();				
             } catch (error) {
                 onDisconnect(error);
                 throw error;
@@ -413,7 +415,7 @@ var device = null;
             clearLog(downloadLog);
 
             // Display basic USB information
-            statusDisplay.textContent = '';
+            statusDisplay.textContent = 'Device is connected';
             connectButton.textContent = 'Disconnect';
             infoDisplay.textContent = (
                 "Name: " + device.device_.productName + "\n" +

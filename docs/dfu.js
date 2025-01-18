@@ -645,6 +645,7 @@ var dfu = {};
             await this.device_.reset();
         } catch (error) {
             if (error == "NetworkError: Unable to reset the device." ||
+				error == "NetworkError: Failed to execute 'reset' on 'USBDevice': Unable to reset the device." ||
                 error == "NotFoundError: Device unavailable." ||
                 error == "NotFoundError: The device was disconnected.") {
                 this.logDebug("Ignored reset error");
