@@ -638,7 +638,7 @@ var device = null;
 
                 try {
                     const blob = await device.do_upload(transferSize, maxSize);
-                    saveAs(blob, "firmware.bin");
+                    saveAs(blob, "data.txt");
                 } catch (error) {
                     logError(error);
                 }
