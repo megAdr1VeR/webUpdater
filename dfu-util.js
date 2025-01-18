@@ -252,7 +252,7 @@ var device = null;
             }
         } else {
             // NumWorks specialization
-            vid = 0x0483; // ST
+            vid = 0x1209;
         }
 
         // Set the product ID from the landing page URL
@@ -271,7 +271,7 @@ var device = null;
             }
         } else {
             // NumWorks specialization
-            pid = 0xDF11; // STM Device in DFU Mode
+            pid = 0xDB42; // STM Device in DFU Mode
         }
 
         // Grab the serial number from the landing page
@@ -285,7 +285,7 @@ var device = null;
             doAutoConnect = true;
         }
 
-        const isNumWorks = (vid === 0x0483 && pid === 0xDF11);
+        const isNumWorks = (vid === 0x1209 && pid === 0xDB42);
         if (isNumWorks) {
             doAutoConnect = true;
         }
